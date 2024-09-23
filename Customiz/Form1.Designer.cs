@@ -1,4 +1,7 @@
-﻿namespace Customiz
+﻿using System;
+using System.Windows.Forms;
+
+namespace Customiz
 {
     partial class Form1
     {
@@ -31,6 +34,7 @@
             this.components = new System.ComponentModel.Container();
             this.TabContorl = new System.Windows.Forms.TabControl();
             this.mainn = new System.Windows.Forms.TabPage();
+            this.warningLabel = new System.Windows.Forms.Label();
             this.tempTruncate = new System.Windows.Forms.Button();
             this.mainRefreshButt = new System.Windows.Forms.Button();
             this.mainGridView = new System.Windows.Forms.DataGridView();
@@ -74,7 +78,6 @@
             this.oMRTableAdapter = new Customiz.Studying_planssDataSetTableAdapters.OMRTableAdapter();
             this.nIRTableAdapter = new Customiz.Studying_planssDataSetTableAdapters.NIRTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
-            this.warningLabel = new System.Windows.Forms.Label();
             this.TabContorl.SuspendLayout();
             this.mainn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainGridView)).BeginInit();
@@ -120,6 +123,17 @@
             this.mainn.Text = "Главная";
             this.mainn.UseVisualStyleBackColor = true;
             // 
+            // warningLabel
+            // 
+            this.warningLabel.AutoSize = true;
+            this.warningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.warningLabel.Location = new System.Drawing.Point(6, 3);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(552, 48);
+            this.warningLabel.TabIndex = 3;
+            this.warningLabel.Text = "Внимание!\r\nСрок следующих дисциплин истекает в течение 30-ти дней!";
+            this.warningLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // tempTruncate
             // 
             this.tempTruncate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -144,6 +158,7 @@
             // 
             // mainGridView
             // 
+            this.mainGridView.AllowUserToAddRows = false;
             this.mainGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -240,6 +255,7 @@
             // 
             // umrGridView
             // 
+            this.umrGridView.AllowUserToAddRows = false;
             this.umrGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -260,7 +276,6 @@
             this.umrGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.umrGridView.Size = new System.Drawing.Size(1108, 371);
             this.umrGridView.TabIndex = 0;
-            this.umrGridView.CellEndEdit += umrGridCellChanged;
             // 
             // worktypeDataGridViewTextBoxColumn1
             // 
@@ -332,6 +347,7 @@
             // 
             // omrGridView
             // 
+            this.omrGridView.AllowUserToAddRows = false;
             this.omrGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -352,7 +368,6 @@
             this.omrGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.omrGridView.Size = new System.Drawing.Size(1108, 371);
             this.omrGridView.TabIndex = 0;
-            this.omrGridView.CellEndEdit += omrGridCellChanged;
             // 
             // worktypeDataGridViewTextBoxColumn2
             // 
@@ -424,6 +439,7 @@
             // 
             // nirGridView
             // 
+            this.nirGridView.AllowUserToAddRows = false;
             this.nirGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -444,7 +460,6 @@
             this.nirGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.nirGridView.Size = new System.Drawing.Size(1108, 371);
             this.nirGridView.TabIndex = 0;
-            this.nirGridView.CellEndEdit += nirGridCellChanged;
             // 
             // worktypeDataGridViewTextBoxColumn3
             // 
@@ -519,17 +534,6 @@
             this.label1.Size = new System.Drawing.Size(138, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "2023/24 учебный год";
-            // 
-            // warningLabel
-            // 
-            this.warningLabel.AutoSize = true;
-            this.warningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.warningLabel.Location = new System.Drawing.Point(6, 3);
-            this.warningLabel.Name = "warningLabel";
-            this.warningLabel.Size = new System.Drawing.Size(552, 48);
-            this.warningLabel.TabIndex = 3;
-            this.warningLabel.Text = "Внимание!\r\nСрок следующих дисциплин истекает в течение 30-ти дней!";
-            this.warningLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Form1
             // 

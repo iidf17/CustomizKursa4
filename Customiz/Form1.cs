@@ -194,7 +194,6 @@ namespace Customiz
             if (e.ColumnIndex == gridContainer[idx].Columns[4].Index)
             {
                 var newVal = gridContainer[idx].Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-
                 var changing = gridContainer[idx].Rows[e.RowIndex].Cells[0].Value;
 
                 List<string> allowedValues = new List<string> { "Назначено", "В работе", "Выполнено", "Утверждено" };
@@ -225,6 +224,41 @@ namespace Customiz
             }
         }
 
+        public void umrDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            Console.WriteLine("SENDER ===== " + sender);
+            DeletingRow(sender, e, 1);
+            
+        }
+        public void omrDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            DeletingRow(sender, e, 2);
+        }
+        public void nirDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            DeletingRow(sender, e, 3);
+        }
+        public void DeletingRow(object sender, DataGridViewRowCancelEventArgs e, int idx)
+        {
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.Studying_planssConnectionString)) 
+            {
+                conn.Open();
+                int i = 0;
+                if (gridContainer[idx].Rows.Count > 0)
+                {
+                    try
+                    {
+                        var changing = gridContainer[idx].Rows[e.Row.Index].Cells[0].Value.ToString();
+                        string qry = "DELETE FROM " + grids[idx] + " WHERE work_type = '" + changing + "'";
+                        using (SqlCommand command = new SqlCommand(qry, conn))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                    catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+                }
+            }
+        }
     }
 
     public static class GlobalVariables

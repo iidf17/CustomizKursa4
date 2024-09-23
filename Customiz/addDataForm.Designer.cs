@@ -89,6 +89,7 @@
             this.timePlanTextBox.Name = "timePlanTextBox";
             this.timePlanTextBox.Size = new System.Drawing.Size(130, 22);
             this.timePlanTextBox.TabIndex = 4;
+            this.timePlanTextBox.KeyPress += TimePlanTextBox_KeyPress;
             // 
             // dateTimePicker1
             // 
